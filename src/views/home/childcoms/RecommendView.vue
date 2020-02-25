@@ -1,7 +1,7 @@
 <template>
   <div class="recomend">
     <div v-for="item in childrecommends" class="item-recommend">
-      <a href="item.link">
+      <a :href="item.link">
         <img :src="item.image" alt="">
         <div>{{item.title}}</div>
       </a>
