@@ -20,5 +20,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+//重写push方法
+const routerPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(err => err);
+}
 export default router
