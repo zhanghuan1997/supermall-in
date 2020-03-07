@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goods-item" @click="itemClick">
+    <img :src="goodsItem.show.img" alt="" @load="imgLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -11,11 +11,28 @@
 </template>
 
 <script>
-  import BScroll from '@better-scroll/core'
   export default{
     components:{},
     props:{
       goodsItem:Object
+    },
+    data(){
+      return{
+
+      }
+    },
+    created(){
+
+    },
+    methods:{
+      //每一张图片加载完成都会调用这个方法
+      imgLoad(){
+        //在事件总线上传出去一个imgLoad
+        this.$bus.$emit('imgLoad')
+      },
+      itemClick(){
+        this.$router.push('/detail/'+this.goodsItem.iid)
+      }
     }
   }
 </script>

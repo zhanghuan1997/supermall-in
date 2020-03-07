@@ -6,6 +6,7 @@ export function getHomeMultidata(){
       url:'/home/multidata'
     })
 }
+
 // 首页流行 新款 精选 商品列表
 export function getHomeGoods(type,page){
   return request({

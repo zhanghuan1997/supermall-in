@@ -41,7 +41,11 @@
     methods:{
       //封装的点击回到顶部的方法
       scrollTo(x, y, time){
-        return this.scroll.scrollTo(x, y, time)
+        return this.scroll && this.scroll.scrollTo(x, y, time)
+      },
+      //封装 img图片每一张加载完成后重新计算高度的放法
+      refresh(){
+        return this.scroll && this.scroll.refresh()
       }
     }
   }
