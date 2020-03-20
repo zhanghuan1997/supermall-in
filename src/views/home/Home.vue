@@ -46,7 +46,7 @@
   import TabControl from 'components/context/tabcontrol/TabControl.vue'
   import GoodsList from 'components/context/goods/GoodsList.vue'
   import Scroll from 'components/common/scroll/Scroll.vue'
-  import BackTop from '../../components/context/backtop/BackTop.vue'
+  import BackTop from 'components/context/backtop/BackTop.vue'
 
   //引入首页需要的子组件封装
   import RecommendView from './childcoms/RecommendView.vue'

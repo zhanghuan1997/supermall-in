@@ -9,6 +9,12 @@ export function getDetail(iid){
   })
 }
 
+export function getRecommend(){
+  return request({
+    url:'/recommend'
+  })
+}
+
 //创建一个goods类 在渲染商品信息时 把接口返回所需要的数组传给型参中 直接new一个Goods即可使用
 export class Goods{
   constructor(itemInfo, columns, services){

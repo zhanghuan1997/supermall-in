@@ -15,7 +15,7 @@
       <div class="info-detail">
         <p>{{commentInfo.content}}</p>
         <div class="info-other">
-          <span class="date">{{commentInfo.created}}</span>
+          <span class="date">{{commentInfo.created|showDate}}</span>
           <span>{{commentInfo.style}}</span>
         </div>
         <div class="info-imgs">
@@ -27,12 +27,20 @@
 </template>
 
 <script>
-
+  //引入格式化时间戳封装的方法
+  import { formatDate } from 'common/utils.js'
   export default {
 		name: "DetailCommentInfo",
     props: {
 		  commentInfo: {
 		    type: Object,
+      }
+    },
+    filters:{
+      showDate(value){
+        //因为时间戳返回的是秒  而new Date需要传的是毫秒 所以需要乘1000
+        let data = new Date(value*1000)
+        return formatDate(data, 'yyyy-MM-dd hh:mm')
       }
     }
 	}
