@@ -155,8 +155,6 @@
         this.$store.dispatch('addCart',product).then((res)=>{
           this.$toast.toast(res,2000)
         })
-        console.log(this.$store.state.cartList.length)
-        console.log(this.$store.state.cartList)
       }
     },
     created(){

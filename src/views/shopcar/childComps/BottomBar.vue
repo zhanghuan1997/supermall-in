@@ -11,7 +11,7 @@
       合计：{{totalPrice}}
     </div>
 
-    <div class="calculate">
+    <div class="calculate" @click="balance">
       结算({{checkLength}})
     </div>
   </div>
@@ -52,7 +52,7 @@
         //如果有一个不选中 返回fasle 没有不选中  全选中  返回true
         return !this.cartList.find(item => !item.checked)
       },
-      
+
       showBottomBar(){
         if(this.cartList.length){
           return true
@@ -67,6 +67,11 @@
           this.cartList.forEach(item => item.checked = true)
         }else{
            this.cartList.forEach(item => item.checked = false)
+        }
+      },
+      balance(){
+        if(!this.isSelectAll){
+          this.$toast.toast('请勾选购买的商品',2000)
         }
       }
     }
